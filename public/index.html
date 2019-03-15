@@ -2,10 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="format-detection" content="telephone=no, address=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover" />
+    <meta name="full-screen" content="yes">
+    <meta name="msapplication-tap-highlight" content="no" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>t1</title>
+    <title>你大爷还是你大爷</title>
+    <script type="text/javascript">
+      (function flexible (window, document) {
+        var docEl = document.documentElement
+        // set 1rem = viewWidth / 10
+        function setRemUnit () {
+          // 完全缩放
+          var rem = docEl.clientWidth / 10
+          // 限制最大缩放到750px，仅针对转换成rem单位有效
+          // var rem = Math.min(docEl.clientWidth, 750) / 10
+          docEl.style.fontSize = rem + 'px'
+        }
+        setRemUnit()
+        // reset rem unit on page resize
+        window.addEventListener('resize', setRemUnit)
+        window.addEventListener('pageshow', function (e) {
+          if (e.persisted) {
+            setRemUnit()
+          }
+        })
+      }(window, document))
+    </script>
   </head>
   <body>
     <noscript>
